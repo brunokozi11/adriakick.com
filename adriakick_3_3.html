@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdriaKick – Hrvatska sportska scena</title>
+<meta name="description" content="AdriaKick – Hrvatska sportska scena. Najnovije vijesti iz nogometa, rukometa, košarke, tenisa i vaterpola.">
+<meta property="og:site_name" content="AdriaKick">
+<meta property="og:type" content="website">
+<meta id="meta-title" property="og:title" content="AdriaKick – Hrvatska sportska scena">
+<meta id="meta-desc" property="og:description" content="Najnovije vijesti iz hrvatskog sporta.">
+<meta id="meta-img" property="og:image" content="">
+<link rel="canonical" id="meta-canonical" href="">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#CC0000;--red-dark:#990000;--red-light:#ff2222;
+  --navy:#0a1628;--navy2:#112244;
+  --gold:#e8a000;
+  --bg:#f5f3ef;--bg2:#eceae4;
+  --text:#1a1a1a;--text2:#555;--text3:#888;
+  --white:#fff;
+  --font-head:'Oswald',sans-serif;
+  --font-body:'IBM Plex Sans',sans-serif;
+  --font-serif:'Source Serif 4',serif;
+}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text);min-height:100vh}
+
+/* TOPBAR */
+#topbar{background:var(--navy);color:#aab;font-size:12px;padding:6px 0;text-align:center;letter-spacing:.5px}
+#topbar span{color:var(--gold);font-weight:600}
+
+/* HEADER */
+#header{background:var(--navy2);padding:0}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.logo{font-family:var(--font-head);font-size:38px;font-weight:700;color:var(--white);letter-spacing:-1px;text-decoration:none;display:flex;align-items:center;gap:4px}
+.logo span{color:var(--red)}
+.logo em{color:var(--gold);font-style:normal;font-size:22px;vertical-align:middle;margin-left:4px}
+.header-social a{color:#aab;margin-left:14px;font-size:13px;text-decoration:none;font-family:var(--font-body);transition:color .2s}
+.header-social a:hover{color:var(--gold)}
+
+/* NAV */
+#nav{background:var(--red);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;overflow-x:auto}
+.nav-inner a{color:var(--white);text-decoration:none;font-family:var(--font-head);font-weight:500;font-size:15px;letter-spacing:.5px;padding:13px 18px;white-space:nowrap;transition:background .2s;display:block}
+.nav-inner a:hover,.nav-inner a.active{background:rgba(0,0,0,.2)}
+.nav-inner a.sp2026{background:var(--gold);color:var(--navy);font-weight:700}
+.nav-inner a.sp2026:hover{background:#d49000}
+
+/* HERO */
+#hero{max-width:1200px;margin:24px auto 0;padding:0 20px}
+.hero-grid{display:grid;grid-template-columns:1fr 340px;gap:20px}
+.hero-main{position:relative;border-radius:4px;overflow:hidden;cursor:pointer;background:var(--navy)}
+.hero-main img{width:100%;height:460px;object-fit:cover;display:block;opacity:.75;transition:opacity .3s}
+.hero-main:hover img{opacity:.9}
+.hero-main-text{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.92));padding:30px 24px 24px}
+.hero-tag{background:var(--red);color:#fff;font-family:var(--font-head);font-size:11px;letter-spacing:1px;padding:3px 8px;margin-bottom:10px;display:inline-block}
+.hero-main-text h2{font-family:var(--font-head);font-size:28px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:8px}
+.hero-main-text p{color:#ccc;font-size:14px;font-family:var(--font-serif);font-style:italic}
+.hero-side{display:flex;flex-direction:column;gap:14px}
+.side-card{display:flex;gap:12px;background:var(--white);border-radius:4px;overflow:hidden;cursor:pointer;transition:box-shadow .2s}
+.side-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12)}
+.side-card img{width:110px;height:80px;object-fit:cover;flex-shrink:0}
+.side-card-text{padding:8px 10px 8px 0;display:flex;flex-direction:column;justify-content:center}
+.side-card-tag{font-size:10px;font-family:var(--font-head);color:var(--red);letter-spacing:.5px;margin-bottom:4px;text-transform:uppercase}
+.side-card-text h4{font-family:var(--font-head);font-size:14px;font-weight:500;line-height:1.3;color:var(--text)}
+
+/* SECTION DIVIDER */
+.section-title{max-width:1200px;margin:32px auto 0;padding:0 20px}
+.section-title h3{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.5px;border-left:4px solid var(--red);padding-left:12px;text-transform:uppercase}
+
+/* ARTICLE GRID */
+.articles-grid{max-width:1200px;margin:16px auto 0;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.art-card{background:var(--white);border-radius:4px;overflow:hidden;cursor:pointer;transition:box-shadow .2s}
+.art-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.art-card img{width:100%;height:160px;object-fit:cover;display:block}
+.art-card-body{padding:14px}
+.art-card-tag{font-size:10px;font-family:var(--font-head);color:var(--red);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.art-card-body h4{font-family:var(--font-head);font-size:15px;font-weight:500;line-height:1.3;margin-bottom:6px}
+.art-card-body p{font-size:13px;color:var(--text2);font-family:var(--font-serif);line-height:1.5}
+.art-card-meta{font-size:11px;color:var(--text3);margin-top:10px;font-family:var(--font-body)}
+
+/* WM BANNER */
+.wm-banner{max-width:1200px;margin:32px auto 0;padding:0 20px}
+.wm-inner{background:var(--navy);border-radius:4px;padding:24px 30px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.wm-inner h3{font-family:var(--font-head);font-size:28px;color:#fff;font-weight:700;line-height:1.2}
+.wm-inner h3 span{color:var(--gold)}
+.wm-inner p{color:#aab;font-size:14px;margin-top:6px}
+.wm-btn{background:var(--gold);color:var(--navy);font-family:var(--font-head);font-size:14px;font-weight:700;padding:12px 24px;border-radius:3px;text-decoration:none;white-space:nowrap;letter-spacing:.5px}
+.wm-btn:hover{background:#d49000}
+
+/* FOOTER */
+#footer{background:var(--navy);color:#8899aa;margin-top:48px;padding:30px 20px;text-align:center;font-size:13px}
+#footer a{color:#aab;text-decoration:none;margin:0 8px}
+.footer-logo{font-family:var(--font-head);font-size:24px;color:#fff;margin-bottom:8px}
+.footer-logo span{color:var(--red)}
+
+/* COOKIE BANNER */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:3px solid var(--red);z-index:99999;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:0 -4px 24px rgba(0,0,0,.4)}
+#cookie-banner p{color:#ccd;font-size:13px;font-family:var(--font-body);line-height:1.6;flex:1;min-width:200px}
+#cookie-banner p a{color:var(--gold);text-decoration:underline;cursor:pointer}
+.cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.cookie-accept{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:3px;cursor:pointer;font-family:var(--font-head);font-size:13px;letter-spacing:.5px;white-space:nowrap}
+.cookie-accept:hover{background:var(--red-dark)}
+.cookie-essential{background:transparent;color:#aab;border:1px solid #445;padding:10px 18px;border-radius:3px;cursor:pointer;font-family:var(--font-body);font-size:13px;white-space:nowrap}
+.cookie-essential:hover{background:#1a2a40;color:#fff}
+
+/* ======================== ADMIN PANEL ======================== */
+#admin-overlay{display:none;position:fixed;inset:0;background:rgba(5,10,20,.96);z-index:10000;overflow-y:auto}
+#admin-panel{max-width:1000px;margin:0 auto;padding:30px 20px 60px}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px;border-bottom:2px solid var(--red);padding-bottom:16px}
+.admin-logo{font-family:var(--font-head);font-size:28px;color:#fff;font-weight:700}
+.admin-logo span{color:var(--red)}
+.admin-logo em{color:var(--gold);font-style:normal;font-size:14px;margin-left:8px;background:rgba(232,160,0,.15);padding:2px 8px;border-radius:2px}
+#admin-close{background:transparent;border:1px solid #445;color:#aab;padding:8px 16px;border-radius:3px;cursor:pointer;font-family:var(--font-body);font-size:13px}
+#admin-close:hover{background:#223;color:#fff}
+
+.admin-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+.admin-tab{background:transparent;border:1px solid #334;color:#889;padding:8px 18px;border-radius:3px;cursor:pointer;font-family:var(--font-head);font-size:13px;letter-spacing:.5px;transition:all .2s}
+.admin-tab.active,.admin-tab:hover{background:var(--red);border-color:var(--red);color:#fff}
+
+.admin-section{display:none}
+.admin-section.active{display:block}
+
+/* FORM STYLES */
+.form-group{margin-bottom:18px}
+.form-group label{display:block;color:#aab;font-size:12px;font-family:var(--font-head);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:#0d1f3a;border:1px solid #334;border-radius:3px;color:#dde;padding:10px 14px;font-family:var(--font-body);font-size:14px;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--red)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-group textarea.tall{min-height:200px}
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.img-upload-area{border:2px dashed #334;border-radius:4px;padding:30px;text-align:center;cursor:pointer;transition:border-color .2s;position:relative;background:#0a1628}
+.img-upload-area:hover{border-color:var(--red)}
+.img-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.img-upload-area p{color:#556;font-size:13px}
+.img-upload-area .icon{font-size:32px;margin-bottom:8px}
+#img-preview{width:100%;max-height:220px;object-fit:cover;border-radius:3px;margin-top:12px;display:none}
+
+.btn-primary{background:var(--red);color:#fff;border:none;padding:12px 28px;border-radius:3px;cursor:pointer;font-family:var(--font-head);font-size:15px;letter-spacing:.5px;width:100%;transition:background .2s}
+.btn-primary:hover{background:var(--red-dark)}
+.btn-primary:disabled{background:#445;cursor:not-allowed}
+.btn-success{background:#1a7a3a;color:#fff;border:none;padding:12px 28px;border-radius:3px;cursor:pointer;font-family:var(--font-head);font-size:15px;width:100%;transition:background .2s}
+.btn-success:hover{background:#155f2d}
+
+.ai-section{background:#0a1a2e;border:1px solid #1e3a5a;border-radius:4px;padding:16px;margin-bottom:18px}
+.ai-section h4{color:#4a9fd4;font-family:var(--font-head);font-size:13px;letter-spacing:.5px;margin-bottom:12px}
+.ai-prompt-row{display:flex;gap:8px}
+.ai-prompt-row input{flex:1}
+.btn-ai{background:#1e3a5a;color:#4a9fd4;border:1px solid #2a5070;padding:10px 16px;border-radius:3px;cursor:pointer;font-family:var(--font-head);font-size:12px;white-space:nowrap;transition:all .2s}
+.btn-ai:hover{background:#2a5070;color:#7ab9e0}
+.ai-status{font-size:12px;color:#4a9fd4;margin-top:8px;display:none}
+
+/* ARTICLE LIST */
+.art-list-item{background:#0d1f3a;border:1px solid #1e3050;border-radius:4px;padding:14px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.art-list-item h5{color:#dde;font-family:var(--font-head);font-size:14px;font-weight:500}
+.art-list-item span{color:#667;font-size:12px;margin-top:3px;display:block}
+.art-list-actions{display:flex;gap:8px;flex-shrink:0}
+.btn-sm{padding:5px 12px;border-radius:2px;cursor:pointer;font-family:var(--font-body);font-size:12px;border:none}
+.btn-edit{background:#1e3a5a;color:#7ab9e0}
+.btn-del{background:#3a1a1a;color:#d46a6a}
+.btn-edit:hover{background:#2a5070}
+.btn-del:hover{background:#5a2020}
+
+/* LOGIN */
+#admin-login{position:fixed;inset:0;background:rgba(5,10,20,.98);z-index:10001;display:none;align-items:center;justify-content:center}
+#admin-login.visible{display:flex}
+.login-box{background:#0d1f3a;border:1px solid #334;border-radius:6px;padding:40px;width:360px;text-align:center}
+.login-box h2{font-family:var(--font-head);color:#fff;font-size:24px;margin-bottom:6px}
+.login-box h2 span{color:var(--red)}
+.login-box p{color:#667;font-size:13px;margin-bottom:24px}
+.login-box input{width:100%;background:#0a1628;border:1px solid #334;border-radius:3px;color:#dde;padding:12px 14px;font-size:15px;outline:none;margin-bottom:12px;text-align:center;letter-spacing:4px;font-family:var(--font-body)}
+.login-box input:focus{border-color:var(--red)}
+.login-error{color:#e06060;font-size:13px;margin-top:8px;display:none}
+.login-btn{background:var(--red);color:#fff;border:none;width:100%;padding:13px;border-radius:3px;cursor:pointer;font-family:var(--font-head);font-size:16px;letter-spacing:.5px;margin-top:4px}
+
+/* NOTIFICATION */
+#notif{position:fixed;top:20px;right:20px;background:#1a7a3a;color:#fff;padding:12px 20px;border-radius:4px;font-size:14px;font-family:var(--font-body);z-index:20000;display:none;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+
+/* AD SLOTS */
+.ad-slot{background:#f0f0f0;border:2px dashed #ccc;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px;font-family:var(--font-body);letter-spacing:.5px;text-transform:uppercase;text-align:center;overflow:hidden}
+.ad-leaderboard{width:100%;height:90px;margin:16px 0}
+.ad-rectangle{width:300px;height:250px;flex-shrink:0}
+.ad-banner{width:100%;height:60px;margin:12px 0}
+
+/* ARTICLE PAGE */
+#article-page{display:none;min-height:100vh;background:var(--bg)}
+.article-page-inner{max-width:1200px;margin:0 auto;padding:24px 20px}
+.article-breadcrumb{font-size:13px;color:var(--text3);font-family:var(--font-body);margin-bottom:20px}
+.article-breadcrumb a{color:var(--red);text-decoration:none;cursor:pointer}
+.article-breadcrumb a:hover{text-decoration:underline}
+.article-layout{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start}
+.article-main{}
+.article-header-img{width:100%;max-height:480px;object-fit:cover;border-radius:4px;display:block;margin-bottom:24px}
+.article-category-badge{display:inline-block;background:var(--red);color:#fff;font-family:var(--font-head);font-size:11px;letter-spacing:1.5px;padding:4px 12px;border-radius:2px;text-transform:uppercase;margin-bottom:14px}
+.article-main-title{font-family:var(--font-head);font-size:36px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:16px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:12px;color:var(--text3);font-family:var(--font-body);margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--bg2)}
+.article-meta span{display:flex;align-items:center;gap:4px}
+.article-lead{font-family:var(--font-serif);font-size:18px;color:#444;line-height:1.75;border-left:4px solid var(--red);padding-left:20px;margin-bottom:28px;font-style:italic}
+.article-body{font-family:var(--font-serif);font-size:16px;color:var(--text);line-height:1.9;white-space:pre-wrap}
+.article-body p{margin-bottom:20px}
+.article-sidebar{}
+.sidebar-sticky{position:sticky;top:80px;display:flex;flex-direction:column;gap:20px}
+.sidebar-related{background:var(--white);border-radius:4px;padding:18px}
+.sidebar-related h4{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px;border-left:3px solid var(--red);padding-left:10px;margin-bottom:14px}
+.related-item{display:flex;gap:10px;margin-bottom:12px;cursor:pointer;padding-bottom:12px;border-bottom:1px solid var(--bg2)}
+.related-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.related-item img{width:72px;height:52px;object-fit:cover;border-radius:3px;flex-shrink:0}
+.related-item-text span{font-size:10px;color:var(--red);font-family:var(--font-head);letter-spacing:.5px;display:block;margin-bottom:3px;text-transform:uppercase}
+.related-item-text h5{font-family:var(--font-head);font-size:13px;font-weight:500;line-height:1.3;color:var(--text)}
+.related-item:hover .related-item-text h5{color:var(--red)}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;font-family:var(--font-head);font-size:13px;letter-spacing:.5px;padding:10px 18px;border-radius:3px;cursor:pointer;border:none;margin-bottom:24px;text-decoration:none}
+.back-btn:hover{background:var(--navy2)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-side{flex-direction:row;flex-wrap:wrap}
+  .side-card{flex:1;min-width:200px}
+  .articles-grid{grid-template-columns:repeat(2,1fr)}
+  .article-layout{grid-template-columns:1fr}
+  .article-sidebar{display:none}
+  .article-main-title{font-size:28px}
+}
+@media(max-width:600px){
+  .logo{font-size:26px}
+  .hero-main img{height:280px}
+  .hero-main-text h2{font-size:20px}
+  .articles-grid{grid-template-columns:1fr}
+  .wm-inner{flex-direction:column;text-align:center}
+  .form-grid-2{grid-template-columns:1fr}
+  .admin-tabs{gap:4px}
+  .admin-tab{font-size:11px;padding:7px 12px}
+  .article-main-title{font-size:22px}
+  .article-lead{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  🏆 <span>SP 2026</span> – Hrvatska je tu! Pratite sve vijesti na AdriaKick
+</div>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#" onclick="showCategory('alle');return false" class="logo">Adria<span>Kick</span><em>⚽</em></a>
+    <div class="header-social">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter/X</a>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" onclick="showCategory('alle');return false" class="active" id="nav-alle">Naslovnica</a>
+    <a href="#" onclick="showCategory('SP 2026');return false" class="sp2026" id="nav-sp2026">⚽ SP 2026</a>
+    <a href="#" onclick="showCategory('Nogomet');return false" id="nav-nogomet">Nogomet</a>
+    <a href="#" onclick="showCategory('Rukomet');return false" id="nav-rukomet">Rukomet</a>
+    <a href="#" onclick="showCategory('Košarka');return false" id="nav-kosarka">Košarka</a>
+    <a href="#" onclick="showCategory('Tenis');return false" id="nav-tenis">Tenis</a>
+    <a href="#" onclick="showCategory('Vaterpolo');return false" id="nav-vaterpolo">Vaterpolo</a>
+    <a href="#" onclick="showCategory('Ostalo');return false" id="nav-ostalo">Ostalo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<main>
+<div id="hero">
+  <div class="hero-grid">
+    <div class="hero-main" onclick="openArticle(0)">
+      <img id="hero-img" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&q=80" alt="Glavni članak">
+      <div class="hero-main-text">
+        <span class="hero-tag" id="hero-tag">NOGOMET</span>
+        <h2 id="hero-title">Vatreni su spremni za SP 2026 – Dalić otkriva tajni plan!</h2>
+        <p id="hero-summary">Izbornik Hrvatske reprezentacije otkrio je ambiciozne planove za predstojeće Svjetsko prvenstvo u SAD-u, Kanadi i Meksiku.</p>
+      </div>
+    </div>
+    <div class="hero-side" id="hero-side">
+      <!-- dinamički punjeno -->
+    </div>
+  </div>
+</div>
+
+<div class="section-title">
+  <h3 id="section-title-text">Najnovije vijesti</h3>
+</div>
+
+<div class="articles-grid" id="articles-grid">
+  <!-- dinamički punjeno -->
+</div>
+
+<div class="wm-banner">
+  <div class="wm-inner">
+    <div>
+      <h3>Svjetsko Prvenstvo <span>2026</span></h3>
+      <p>SAD · Kanada · Meksiko — Vatreni idu po zlato!</p>
+    </div>
+    <a href="#" class="wm-btn">SP 2026 Vijesti →</a>
+  </div>
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-logo">Adria<span>Kick</span></div>
+  <p>Hrvatska sportska scena &copy; 2026</p>
+  <div style="margin-top:12px">
+    <a href="#" onclick="openInfoPage('oNama');return false">O nama</a>
+    <a href="#" onclick="openInfoPage('kontakt');return false">Kontakt</a>
+    <a href="#" onclick="openInfoPage('oglasavanje');return false">Oglašavanje</a>
+    <a href="#" onclick="openInfoPage('privatnost');return false">Privatnost</a>
+    <a href="#" onclick="openInfoPage('datenschutz');return false">Datenschutz / Zaštita podataka</a>
+    <a href="#" onclick="openInfoPage('impressum');return false">Impressum</a>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" style="display:none">
+  <p>
+    🍪 Ova stranica koristi kolačiće (cookies) za analitiku i prikazivanje oglasa (Google AdSense).
+    Klikom na „Prihvati sve" pristajete na korištenje svih kolačića.
+    Više o tome u našoj <a onclick="openInfoPage('datenschutz');hideCookieBanner()">Politici privatnosti</a>.
+  </p>
+  <div class="cookie-btns">
+    <button class="cookie-essential" onclick="cookieChoice('essential')">Samo nužni</button>
+    <button class="cookie-accept" onclick="cookieChoice('all')">✓ Prihvati sve</button>
+  </div>
+</div>
+
+<!-- INFO PAGES -->
+<div id="info-page" style="display:none;min-height:100vh;background:var(--bg)">
+  <div style="max-width:800px;margin:0 auto;padding:40px 20px 80px">
+    <button onclick="closeInfoPage()" class="back-btn">← Naslovnica</button>
+    <div id="info-content"></div>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div id="admin-login">
+  <div class="login-box">
+    <h2>Adria<span>Kick</span></h2>
+    <p>Admin pristup – unesite kod</p>
+    <input type="password" id="admin-code-input" placeholder="••••••••••••" maxlength="20" autocomplete="off">
+    <div class="login-error" id="login-error">❌ Pogrešan kod. Pokušajte ponovo.</div>
+    <button class="login-btn" onclick="checkAdminCode()">Prijava</button>
+  </div>
+</div>
+
+<!-- ======================= ADMIN OVERLAY ======================= -->
+<div id="admin-overlay">
+  <div id="admin-panel">
+    <div class="admin-header">
+      <div class="admin-logo">Adria<span>Kick</span><em>ADMIN</em></div>
+      <button id="admin-close" onclick="closeAdmin()">✕ Izlaz</button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab active" onclick="switchTab('new')">➕ Novi članak</button>
+      <button class="admin-tab" onclick="switchTab('list')">📋 Svi članci</button>
+      <button class="admin-tab" onclick="switchTab('hero')">🌟 Naslovna slika</button>
+    </div>
+
+    <!-- TAB: NOVI ČLANAK -->
+    <div class="admin-section active" id="tab-new">
+      <div class="ai-section">
+        <h4>🤖 AI POMOĆNIK – generiraj sadržaj</h4>
+        <div class="ai-prompt-row">
+          <input type="text" id="ai-topic" placeholder="Unesite temu (npr. Modrić gol, Hrvatska vs Njemačka...)">
+          <button class="btn-ai" onclick="generateWithAI()">⚡ Generiraj</button>
+        </div>
+        <div class="ai-status" id="ai-status">⏳ AI generira sadržaj...</div>
+      </div>
+
+      <div class="form-grid-2">
+        <div class="form-group">
+          <label>Kategorija</label>
+          <select id="new-cat">
+            <option>Nogomet</option><option>SP 2026</option><option>Rukomet</option>
+            <option>Košarka</option><option>Tenis</option><option>Vaterpolo</option><option>Ostalo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Datum</label>
+          <input type="date" id="new-date">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Naslov članka</label>
+        <input type="text" id="new-title" placeholder="Unesite privlačan naslov...">
+      </div>
+      <div class="form-group">
+        <label>Summary (kratki opis za kartice)</label>
+        <textarea id="new-summary" placeholder="Kratki opis koji se prikazuje ispod naslova (1-2 rečenice)..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Kratki tekst (intro, prikazuje se na vrhu članka)</label>
+        <textarea id="new-short" placeholder="Uvodni paragraf koji uvodi čitatelje u priču..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Dugački tekst (cijeli članak)</label>
+        <textarea class="tall" id="new-long" placeholder="Cijeli tekst članka..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Slika članka</label>
+        <div class="img-upload-area" id="upload-area">
+          <div class="icon">📷</div>
+          <p>Kliknite za učitavanje slike (JPG, PNG, WebP)</p>
+          <input type="file" accept="image/*" onchange="handleImageUpload(event)">
+        </div>
+        <img id="img-preview" src="" alt="Pregled slike">
+      </div>
+
+      <button class="btn-primary" onclick="publishArticle()">📤 OBJAVI ČLANAK</button>
+    </div>
+
+    <!-- TAB: SVI ČLANCI -->
+    <div class="admin-section" id="tab-list">
+      <div id="admin-articles-list">
+        <p style="color:#556;font-size:13px">Nema objavljenih članaka.</p>
+      </div>
+    </div>
+
+    <!-- TAB: NASLOVNA -->
+    <div class="admin-section" id="tab-hero">
+      <p style="color:#aab;font-size:13px;margin-bottom:16px">Odaberite koji članak će biti prikazan kao glavni hero na naslovnici:</p>
+      <div id="hero-selector">
+        <p style="color:#556;font-size:13px">Prvo objavite neke članke.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- NOTIFICATION -->
+<div id="notif"></div>
+
+<!-- ARTICLE PAGE (full page view) -->
+<div id="article-page">
+  <div style="max-width:1200px;margin:0 auto;padding:8px 20px 0">
+    <div class="ad-slot ad-leaderboard">📢 Werbung 728×90 – Google AdSense / Ihr Banner hier</div>
+  </div>
+  <div class="article-page-inner">
+    <div class="article-breadcrumb">
+      <a onclick="closeArticlePage()">← Naslovnica</a>
+      &nbsp;/&nbsp;
+      <span id="ap-breadcrumb-cat"></span>
+    </div>
+    <div class="article-layout">
+      <div class="article-main">
+        <img id="ap-img" src="" alt="" class="article-header-img">
+        <div class="ad-slot ad-banner">📢 Werbung 728×60 – Banner ovdje</div>
+        <span id="ap-cat" class="article-category-badge"></span>
+        <h1 id="ap-title" class="article-main-title"></h1>
+        <div class="article-meta">
+          <span>📅 <span id="ap-date"></span></span>
+          <span>✍️ AdriaKick Redakcija</span>
+        </div>
+        <p id="ap-lead" class="article-lead"></p>
+        <div id="ap-body" class="article-body"></div>
+        <div class="ad-slot ad-leaderboard" style="margin-top:32px">📢 Werbung 728×90 – ispod članka</div>
+      </div>
+      <div class="article-sidebar">
+        <div class="sidebar-sticky">
+          <div class="ad-slot ad-rectangle">📢 Werbung 300×250<br>Google AdSense</div>
+          <div class="sidebar-related">
+            <h4>Slični članci</h4>
+            <div id="ap-related"></div>
+          </div>
+          <div class="ad-slot ad-rectangle">📢 Werbung 300×250<br>Vaš oglas ovdje</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============ DATA ============
+let articles = JSON.parse(localStorage.getItem('adriakick_articles')||'[]');
+let heroIndex = parseInt(localStorage.getItem('adriakick_hero')||'0');
+let currentImgData = '';
+let adminLoggedIn = false;
+const ADMIN_CODE = 'Bruno20ko20';
+
+// Default demo articles
+if(articles.length===0){
+  articles = [
+    {id:1,cat:'SP 2026',title:'Vatreni su spremni za SP 2026 – Dalić otkriva tajni plan!',summary:'Izbornik Hrvatske reprezentacije otkrio je ambiciozne planove za predstojeće Svjetsko Prvenstvo.',shortText:'Zlatko Dalić drži sve karte blizu prsa, ali ipak je otkrio ključne detalje sprinta prema SP-u 2026.',longText:'Hrvatska reprezentacija kreće u jednu od najznačajnijih priprema u modernoj povijesti. Dalić je potvrdio da je selekcija jača nego ikad i da su Vatreni odlučni pokazati se na SP-u u SAD-u, Kanadi i Meksiku. Posebna pažnja posvećena je mlađim igračima koji trebaju postati okosnica momčadi.',img:'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80',date:'3.6.2026'},
+    {id:2,cat:'Rukomet',title:'Rukometaši su zlatni! Europsko zlato u rukama Vatrenih',summary:'Hrvatska rukometna reprezentacija osvojila je zlatnu medalju na Europskom Prvenstvu.',shortText:'Nevjerojatna pobjeda u finalu. Hrvatska savladala Dansku u dramatičnoj završnici.',longText:'Zagreb slavi! Hrvatska rukometna reprezentacija donijela je zlato kući. Nakon napete borbe u finalu, Vatreni su savladali aktualnog prvaka Dansku 28:26 i upisali se u povijest.',img:'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80',date:'2.6.2026'},
+    {id:3,cat:'Košarka',title:'Zubac dominira NBA-om: Nova sezona, novi rekordi!',summary:'Ivica Zubac postavlja nove rekorde u NBA ligi i postaje lider Los Angeles Clippersa.',shortText:'Hrvatski košarkaški div nastavlja impresivnu sezonu u SAD-u.',longText:'Ivica Zubac nije prestao oduševljavati. U prošloj utakmici zabilježio je 22 poena i 15 skokova, čime je pomogao Clippersima do važne pobjede.',img:'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800&q=80',date:'1.6.2026'},
+    {id:4,cat:'Tenis',title:'Čilić u četvrtfinalu Roland Garrosa – kreće po titulu!',summary:'Marin Čilić pružio izvrsnu predstavu i plasirao se u četvrtfinale pariskog Grand Slama.',shortText:'Marin nastavlja sjajnu formu na šljaci Pariza.',longText:'Roland Garros 2026 donosi uzbuđenje. Marin Čilić pobijedio je u tri seta i pokazao da je gladan pobjede. U četvrtfinalu ga čeka izazov karijere.',img:'https://images.unsplash.com/photo-1545809074-59472b3f5ecc?w=800&q=80',date:'31.5.2026'},
+    {id:5,cat:'Vaterpolo',title:'Vaterpolisti šokirali Srbiju u polufinalu!',summary:'Hrvatska vaterpolska reprezentacija savladala rivala Srbiju i plasirala se u finale Europskog Prvenstv.',shortText:'Drama u bazenu – Hrvatska ide po zlato u vaterpolu.',longText:'Vaterpolisti su pokazali srce šampiona. Zaostajući s 8:10 u zadnjoj četvrtini, okrenuli su rezultat i pobijedili 11:10.',img:'https://images.unsplash.com/photo-1519861531473-9200262188bf?w=800&q=80',date:'30.5.2026'},
+  ];
+  saveArticles();
+}
+
+function saveArticles(){localStorage.setItem('adriakick_articles',JSON.stringify(articles))}
+
+// ============ RENDER ============
+function renderSite(filterCat){
+  const cat = filterCat || 'alle';
+  // Hero — immer aus allen Artikeln
+  const h = articles[heroIndex] || articles[0];
+  if(h){
+    document.getElementById('hero-img').src = h.img;
+    document.getElementById('hero-tag').textContent = h.cat;
+    document.getElementById('hero-title').textContent = h.title;
+    document.getElementById('hero-summary').textContent = h.summary;
+  }
+  // Hero onclick immer auf heroIndex
+  document.querySelector('.hero-main').onclick = ()=>openArticle(heroIndex);
+
+  // Side cards (next 3 aus allen)
+  const sideEl = document.getElementById('hero-side');
+  sideEl.innerHTML = '';
+  articles.filter((_,i)=>i!==heroIndex).slice(0,3).forEach((a,i)=>{
+    const idx = articles.indexOf(a);
+    sideEl.innerHTML += `<div class="side-card" onclick="openArticle(${idx})">
+      <img src="${a.img}" alt="" onerror="this.src='https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=300&q=60'">
+      <div class="side-card-text">
+        <span class="side-card-tag">${a.cat}</span>
+        <h4>${a.title}</h4>
+      </div>
+    </div>`;
+  });
+
+  // Grid — gefiltert nach Kategorie
+  const filtered = cat === 'alle' ? articles : articles.filter(a => a.cat === cat);
+  const titleEl = document.getElementById('section-title-text');
+  titleEl.textContent = cat === 'alle' ? 'Najnovije vijesti' : cat;
+
+  // Hero-Bereich nur bei Alle anzeigen
+  document.getElementById('hero').style.display = cat === 'alle' ? '' : 'none';
+
+  const grid = document.getElementById('articles-grid');
+  grid.innerHTML = '';
+  if(filtered.length === 0){
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text3);font-family:var(--font-body)">Nema članaka u kategoriji "${cat}".</div>`;
+  } else {
+    filtered.slice(0,12).forEach((a)=>{
+      const i = articles.indexOf(a);
+      grid.innerHTML += `<div class="art-card" onclick="openArticle(${i})">
+        <img src="${a.img}" alt="" onerror="this.src='https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&q=60'">
+        <div class="art-card-body">
+          <div class="art-card-tag">${a.cat}</div>
+          <h4>${a.title}</h4>
+          <p>${a.summary}</p>
+          <div class="art-card-meta">${a.date}</div>
+        </div>
+      </div>`;
+    });
+  }
+}
+
+let currentCategory = 'alle';
+
+function showCategory(cat){
+  currentCategory = cat;
+  // Alle Seiten schließen, Hauptseite zeigen
+  document.getElementById('article-page').style.display = 'none';
+  document.getElementById('info-page').style.display = 'none';
+  document.querySelector('main').style.display = '';
+  document.getElementById('footer').style.display = '';
+
+  // Nav-Aktiv-Status setzen
+  document.querySelectorAll('.nav-inner a').forEach(a => a.classList.remove('active'));
+  const navMap = {'alle':'nav-alle','SP 2026':'nav-sp2026','Nogomet':'nav-nogomet','Rukomet':'nav-rukomet','Košarka':'nav-kosarka','Tenis':'nav-tenis','Vaterpolo':'nav-vaterpolo','Ostalo':'nav-ostalo'};
+  const activeEl = document.getElementById(navMap[cat] || 'nav-alle');
+  if(activeEl) activeEl.classList.add('active');
+
+  renderSite(cat);
+  window.scrollTo(0,0);
+}
+
+// Hilfsfunktion: Titel → URL-Slug (z.B. "Modrić gol Real Madrid" → "modric-gol-real-madrid")
+function slugify(text){
+  return text.toLowerCase()
+    .replace(/[čć]/g,'c').replace(/[šš]/g,'s').replace(/[žž]/g,'z')
+    .replace(/đ/g,'d').replace(/[áàä]/g,'a').replace(/[éèë]/g,'e')
+    .replace(/[íì]/g,'i').replace(/[óòö]/g,'o').replace(/[úùü]/g,'u')
+    .replace(/[^a-z0-9\s-]/g,'')
+    .trim().replace(/\s+/g,'-').replace(/-+/g,'-')
+    .substring(0,80);
+}
+
+function updateMeta(title, description, imgUrl, slug){
+  // Seitentitel
+  document.title = title + ' – AdriaKick';
+  // Meta description
+  let md = document.querySelector('meta[name="description"]');
+  if(md) md.setAttribute('content', description);
+  // OG Tags
+  document.getElementById('meta-title').setAttribute('content', title + ' – AdriaKick');
+  document.getElementById('meta-desc').setAttribute('content', description);
+  if(imgUrl) document.getElementById('meta-img').setAttribute('content', imgUrl);
+  // Canonical URL — funktioniert korrekt sobald die Seite auf einem Webserver läuft
+  const base = location.origin + location.pathname.replace(/\/[^/]*$/, '/');
+  const canonical = slug ? base + slug : location.href;
+  document.getElementById('meta-canonical').setAttribute('href', canonical);
+  if(slug) history.pushState({articleSlug: slug}, '', '/' + slug);
+}
+
+function resetMeta(){
+  document.title = 'AdriaKick – Hrvatska sportska scena';
+  let md = document.querySelector('meta[name="description"]');
+  if(md) md.setAttribute('content','AdriaKick – Najnovije vijesti iz hrvatskog sporta.');
+  history.pushState(null,'',location.pathname);
+}
+
+function openArticle(idx){
+  const a = articles[idx];
+  if(!a)return;
+
+  // Artikel-Seite befüllen
+  document.getElementById('ap-img').src = a.img;
+  document.getElementById('ap-cat').textContent = a.cat;
+  document.getElementById('ap-breadcrumb-cat').textContent = a.cat;
+  document.getElementById('ap-title').textContent = a.title;
+  document.getElementById('ap-date').textContent = a.date;
+  document.getElementById('ap-lead').textContent = a.shortText || a.summary;
+
+  const bodyEl = document.getElementById('ap-body');
+  const paras = (a.longText||'').split(/\n+/).filter(p=>p.trim());
+  bodyEl.innerHTML = paras.map(p=>`<p>${p}</p>`).join('');
+
+  // Ähnliche Artikel
+  const relEl = document.getElementById('ap-related');
+  const related = articles.filter((_,i)=>i!==idx).slice(0,4);
+  relEl.innerHTML = related.map((r)=>{
+    const ri = articles.indexOf(r);
+    return `<div class="related-item" onclick="openArticle(${ri})">
+      <img src="${r.img}" alt="" onerror="this.src='https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=200&q=60'">
+      <div class="related-item-text">
+        <span>${r.cat}</span>
+        <h5>${r.title}</h5>
+      </div>
+    </div>`;
+  }).join('');
+
+  // SEO: eigener Titel, Meta-Description und URL-Slug pro Artikel
+  const slug = a.slug || slugify(a.title);
+  updateMeta(a.title, a.summary, a.img, slug);
+
+  // Seite anzeigen
+  document.getElementById('article-page').style.display = 'block';
+  document.querySelector('main').style.display = 'none';
+  document.getElementById('footer').style.display = 'none';
+  window.scrollTo(0,0);
+}
+
+function closeArticlePage(){
+  document.getElementById('article-page').style.display = 'none';
+  document.querySelector('main').style.display = '';
+  document.getElementById('footer').style.display = '';
+  resetMeta();
+  renderSite(currentCategory);
+  window.scrollTo(0,0);
+}
+
+// Handle browser back button
+window.addEventListener('popstate', function(e){
+  if(e.state && e.state.articleIdx !== undefined){
+    openArticle(e.state.articleIdx);
+  } else {
+    document.getElementById('article-page').style.display = 'none';
+    document.querySelector('main').style.display = '';
+    document.getElementById('footer').style.display = '';
+  }
+});
+
+// ============ ADMIN ============
+function checkAdminCode(){
+  const val = document.getElementById('admin-code-input').value;
+  if(val === ADMIN_CODE){
+    document.getElementById('admin-login').classList.remove('visible');
+    document.getElementById('admin-overlay').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    adminLoggedIn = true;
+    renderAdminList();
+    renderHeroSelector();
+    document.getElementById('new-date').value = new Date().toISOString().split('T')[0];
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+    setTimeout(()=>document.getElementById('login-error').style.display='none',3000);
+  }
+}
+document.getElementById('admin-code-input').addEventListener('keydown',e=>{if(e.key==='Enter')checkAdminCode()});
+
+function closeAdmin(){
+  document.getElementById('admin-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function switchTab(name){
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  event.target.classList.add('active');
+  if(name==='list')renderAdminList();
+  if(name==='hero')renderHeroSelector();
+}
+
+function handleImageUpload(e){
+  const file = e.target.files[0];
+  if(!file)return;
+  const reader = new FileReader();
+  reader.onload = ev=>{
+    currentImgData = ev.target.result;
+    const prev = document.getElementById('img-preview');
+    prev.src = currentImgData;
+    prev.style.display = 'block';
+    document.querySelector('.img-upload-area p').textContent = '✅ ' + file.name;
+  };
+  reader.readAsDataURL(file);
+}
+
+function publishArticle(){
+  const title = document.getElementById('new-title').value.trim();
+  const summary = document.getElementById('new-summary').value.trim();
+  const shortText = document.getElementById('new-short').value.trim();
+  const longText = document.getElementById('new-long').value.trim();
+  const cat = document.getElementById('new-cat').value;
+  const date = document.getElementById('new-date').value;
+  if(!title||!summary){showNotif('❌ Naslov i summary su obavezni!',false);return;}
+  const img = currentImgData || 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=80';
+  const d = date ? new Date(date).toLocaleDateString('hr-HR') : new Date().toLocaleDateString('hr-HR');
+  articles.unshift({id:Date.now(),cat,title,summary,shortText,longText,img,date:d});
+  saveArticles();
+  renderSite('alle');
+  showNotif('✅ Članak objavljen!',true);
+  // reset
+  ['new-title','new-summary','new-short','new-long'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('img-preview').style.display='none';
+  document.querySelector('.img-upload-area p').textContent='Kliknite za učitavanje slike (JPG, PNG, WebP)';
+  currentImgData = '';
+}
+
+function renderAdminList(){
+  const el = document.getElementById('admin-articles-list');
+  if(articles.length===0){el.innerHTML='<p style="color:#556;font-size:13px">Nema objavljenih članaka.</p>';return;}
+  el.innerHTML = articles.map((a,i)=>`
+    <div class="art-list-item">
+      <div>
+        <h5>${a.title}</h5>
+        <span>${a.cat} · ${a.date}</span>
+      </div>
+      <div class="art-list-actions">
+        <button class="btn-sm btn-del" onclick="deleteArticle(${i})">🗑 Obriši</button>
+        <button class="btn-sm btn-edit" onclick="setHero(${i})">⭐ Naslovna</button>
+      </div>
+    </div>`).join('');
+}
+
+function renderHeroSelector(){
+  const el = document.getElementById('hero-selector');
+  if(articles.length===0){el.innerHTML='<p style="color:#556;font-size:13px">Prvo objavite neke članke.</p>';return;}
+  el.innerHTML = articles.map((a,i)=>`
+    <div class="art-list-item" style="${i===heroIndex?'border-color:var(--gold)':''}">
+      <div>
+        <h5>${i===heroIndex?'⭐ ':''}${a.title}</h5>
+        <span>${a.cat} · ${a.date}</span>
+      </div>
+      <button class="btn-sm btn-edit" onclick="setHero(${i})">${i===heroIndex?'Aktivan':'Postavi'}</button>
+    </div>`).join('');
+}
+
+function setHero(i){
+  heroIndex = i;
+  localStorage.setItem('adriakick_hero',i);
+  renderSite(currentCategory);
+  renderHeroSelector();
+  showNotif('⭐ Naslovna slika ažurirana!',true);
+}
+
+function deleteArticle(i){
+  if(!confirm('Obrisati ovaj članak?'))return;
+  articles.splice(i,1);
+  if(heroIndex>=articles.length)heroIndex=0;
+  saveArticles();
+  renderSite(currentCategory);
+  renderAdminList();
+  showNotif('🗑 Članak obrisan.',true);
+}
+
+function showNotif(msg,ok){
+  const n = document.getElementById('notif');
+  n.textContent = msg;
+  n.style.background = ok ? '#1a7a3a' : '#8b1a1a';
+  n.style.display = 'block';
+  setTimeout(()=>n.style.display='none',3000);
+}
+
+// ============ AI GENERATE ============
+async function generateWithAI(){
+  const topic = document.getElementById('ai-topic').value.trim();
+  if(!topic){showNotif('❌ Unesite temu!',false);return;}
+  const status = document.getElementById('ai-status');
+  status.style.display = 'block';
+  status.textContent = '⏳ AI generira sadržaj na hrvatskom...';
+  try{
+    const res = await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        messages:[{role:'user',content:`Ti si sportski novinar za hrvatsku sportsku web stranicu AdriaKick. Generiraj članak na HRVATSKOM jeziku o sljedećoj temi: "${topic}". Vrati ISKLJUČIVO JSON bez ikakvih markdown backtickova, u ovom obliku: {"title":"...","summary":"...","shortText":"...","longText":"..."} gdje je summary kratka 1-2 rečenice, shortText uvodni paragraf (3-4 rečenice), longText cijeli tekst (4-6 paragrafa). Sve na hrvatskom.`}]
+      })
+    });
+    const data = await res.json();
+    let text = data.content?.filter(c=>c.type==='text').map(c=>c.text).join('');
+    text = text.replace(/```json|```/g,'').trim();
+    const parsed = JSON.parse(text);
+    document.getElementById('new-title').value = parsed.title||'';
+    document.getElementById('new-summary').value = parsed.summary||'';
+    document.getElementById('new-short').value = parsed.shortText||'';
+    document.getElementById('new-long').value = parsed.longText||'';
+    status.textContent = '✅ Sadržaj generiran! Pregledajte i objavite.';
+    showNotif('✅ AI sadržaj generiran!',true);
+  }catch(e){
+    status.textContent = '❌ Greška pri generiranju. Pokušajte ponovo.';
+    showNotif('❌ AI greška: '+e.message,false);
+  }
+}
+
+// ============ URL ADMIN TRIGGER ============
+function checkURLForAdmin(){
+  if(location.hash==='#admin'||location.pathname.endsWith('/admin')||location.search.includes('admin')){
+    triggerAdmin();
+    history.replaceState(null,'',location.pathname);
+  }
+}
+function triggerAdmin(){
+  document.getElementById('admin-login').classList.add('visible');
+  document.getElementById('admin-code-input').value='';
+  document.getElementById('login-error').style.display='none';
+}
+// Also check for /admin typed in URL bar via hashchange
+window.addEventListener('hashchange',checkURLForAdmin);
+// Check on load
+window.addEventListener('load',()=>{checkURLForAdmin();renderSite('alle')});
+// Keyboard shortcut fallback: Ctrl+Shift+A
+document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&e.key==='A')triggerAdmin()});
+
+// ============ INFO PAGES ============
+const infoPages = {
+  oNama: `<h1 style="font-family:var(--font-head);font-size:32px;color:var(--navy);margin-bottom:16px">O nama</h1>
+    <p style="font-family:var(--font-serif);font-size:16px;line-height:1.8;color:var(--text);margin-bottom:16px">
+      AdriaKick je hrvatska sportska platforma posvećena praćenju najvažnijih sportskih događaja u Hrvatskoj i svijetu.
+      Pokrivamo nogomet, rukomet, košarku, tenis, vaterpolo i sve sportske priče koje su važne za nas.
+    </p>
+    <p style="font-family:var(--font-serif);font-size:16px;line-height:1.8;color:var(--text)">
+      Naš tim prati sve utakmice, transfere i vijesti kako biste vi uvijek bili prvi informirani.
+    </p>`,
+  kontakt: `<h1 style="font-family:var(--font-head);font-size:32px;color:var(--navy);margin-bottom:16px">Kontakt</h1>
+    <p style="font-family:var(--font-serif);font-size:16px;line-height:1.8;color:var(--text);margin-bottom:20px">Za sve upite, suradnje ili oglašavanje slobodno nas kontaktirajte:</p>
+    <p style="font-family:var(--font-body);font-size:15px;color:var(--text);line-height:2.6;margin-bottom:24px">
+      👤 <strong>Bruno Kozina</strong> – Odgovorni urednik / Verantwortlicher Redakteur<br>
+      📍 Weihermähder 15c, 6850 Dornbirn, Österreich<br>
+      📧 E-mail: <a href="mailto:redakcija@adriakick.hr" style="color:var(--red)">redakcija@adriakick.hr</a><br>
+      📘 Facebook: <strong>– link folgt –</strong><br>
+      📸 Instagram: <strong>– link folgt –</strong><br>
+      🐦 X (Twitter): <strong>– link folgt –</strong>
+    </p>
+    <div style="background:var(--bg2);border-left:4px solid var(--gold);padding:14px 18px;border-radius:3px;font-family:var(--font-body);font-size:13px;color:var(--text2);line-height:1.7">
+      🤖 <strong>Napomena o AI sadržaju:</strong> Dio sadržaja na ovoj stranici izrađuje se uz potporu umjetne inteligencije i redakcijski se provjerava.<br>
+      <span style="color:#888;font-size:12px">Ein Teil der Inhalte wird mit Unterstützung künstlicher Intelligenz erstellt und redaktionell geprüft.</span>
+    </div>`,
+  oglasavanje: `<h1 style="font-family:var(--font-head);font-size:32px;color:var(--navy);margin-bottom:16px">Oglašavanje</h1>
+    <p style="font-family:var(--font-serif);font-size:16px;line-height:1.8;color:var(--text);margin-bottom:16px">
+      AdriaKick nudi atraktivne mogućnosti oglašavanja za tvrtke koje žele dosegnuti sportsku publiku u Hrvatskoj i regiji.
+    </p>
+    <p style="font-family:var(--font-body);font-size:15px;color:var(--text);line-height:2.4">
+      📐 Dostupni formati: Banner 728×90, Pravokutnik 300×250, Sponzorirani članci<br>
+      👤 Kontakt: <strong>Bruno Kozina</strong><br>
+      📍 Weihermähder 15c, 6850 Dornbirn, Österreich
+    </p>`,
+  privatnost: `<h1 style="font-family:var(--font-head);font-size:32px;color:var(--navy);margin-bottom:16px">Privatnost</h1>
+    <p style="font-family:var(--font-serif);font-size:16px;line-height:1.8;color:var(--text);margin-bottom:16px">
+      AdriaKick poštuje privatnost svojih korisnika. Ne prikupljamo osobne podatke bez pristanka.
+    </p>
+    <p style="font-family:var(--font-serif);font-size:16px;line-height:1.8;color:var(--text)">
+      Ova stranica može koristiti kolačiće (cookies) za analitiku i poboljšanje korisničkog iskustva.
+      Korištenjem stranice prihvaćate ovu politiku privatnosti.
+    </p>`,
+  impressum: `<h1 style="font-family:var(--font-head);font-size:32px;color:var(--navy);margin-bottom:24px">Impressum</h1>
+    <div style="font-family:var(--font-body);font-size:15px;color:var(--text);line-height:2.4">
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">Betreiber / Nositelj stranice</strong><br>
+      Bruno Kozina<br>
+      Weihermähder 15c<br>
+      6850 Dornbirn<br>
+      Österreich / Austrija</p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">UID-Nummer</strong><br>
+      ATU82929725</p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">Kontakt</strong><br>
+      📧 E-mail: <a href="mailto:redakcija@adriakick.hr" style="color:var(--red)">redakcija@adriakick.hr</a><br>
+      📘 Facebook: <span id="imp-fb">– link folgt –</span><br>
+      📸 Instagram: <span id="imp-ig">– link folgt –</span><br>
+      🐦 X (Twitter): <span id="imp-x">– link folgt –</span></p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">Odgovorni urednik / Verantwortlicher Redakteur</strong><br>
+      Bruno Kozina · Weihermähder 15c · 6850 Dornbirn · Österreich</p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">Napomena o AI sadržaju / KI-Hinweis</strong><br>
+      Dio sadržaja na ovoj stranici izrađuje se uz potporu umjetne inteligencije i redakcijski se provjerava.<br>
+      <span style="color:#666;font-size:13px">Ein Teil der Inhalte wird mit Unterstützung künstlicher Intelligenz erstellt und redaktionell geprüft.</span></p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">Haftungsausschluss / Odricanje odgovornosti</strong><br>
+      Sadržaj ove web stranice služi isključivo u informativne svrhe. Unatoč pažljivoj obradi sadržaja, ne preuzimamo nikakvu odgovornost za točnost, potpunost ili aktualnost objavljenih informacija.</p>
+
+      <p><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">Urheberrecht / Autorska prava</strong><br>
+      Svi tekstovi, slike i ostali sadržaji na ovoj stranici zaštićeni su autorskim pravima. Reprodukcija bez pisanog dopuštenja nositelja nije dozvoljena.</p>
+    </div>`,
+
+  datenschutz: `<h1 style="font-family:var(--font-head);font-size:32px;color:var(--navy);margin-bottom:8px">Datenschutzerklärung</h1>
+    <p style="font-family:var(--font-head);font-size:16px;color:var(--red);margin-bottom:28px;letter-spacing:.3px">Politika zaštite osobnih podataka (DSGVO / GDPR)</p>
+    <div style="font-family:var(--font-body);font-size:14px;color:var(--text);line-height:1.9">
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">1. Verantwortlicher / Odgovorna osoba</strong><br>
+      Bruno Kozina · Weihermähder 15c · 6850 Dornbirn · Österreich<br>
+      UID: ATU82929725</p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">2. Welche Daten wir erheben / Koje podatke prikupljamo</strong><br>
+      Diese Website erhebt beim Besuch automatisch Server-Log-Dateien (IP-Adresse, Browsertyp, aufgerufene Seiten, Datum/Uhrzeit). Diese Daten werden ausschließlich zur technischen Sicherstellung des Betriebs verwendet und nach spätestens 7 Tagen gelöscht.<br><br>
+      Pri posjetu ova stranica automatski bilježi tehničke podatke (IP adresa, vrsta preglednika, datum/vrijeme posjeta) isključivo u svrhu tehničke sigurnosti.</p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">3. Google AdSense & Werbung / Oglašavanje</strong><br>
+      Diese Website nutzt Google AdSense, einen Werbedienst der Google LLC (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Google AdSense verwendet Cookies, um Ihnen auf Ihre Interessen zugeschnittene Werbung anzuzeigen. Durch die Nutzung dieser Website erklären Sie sich damit einverstanden, sofern Sie der Cookie-Nutzung zugestimmt haben.<br><br>
+      Ova stranica koristi Google AdSense za prikazivanje oglasa. Google AdSense koristi kolačiće za personalizaciju oglasa. Više informacija: <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--red)">policies.google.com/privacy</a></p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">4. Cookies / Kolačići</strong><br>
+      Wir verwenden folgende Cookie-Kategorien:<br>
+      <strong>Notwendig:</strong> Technisch erforderlich für den Betrieb (z.B. Admin-Session, Artikel-Speicherung).<br>
+      <strong>Analyse &amp; Werbung:</strong> Google AdSense und ggf. Google Analytics zur Reichweitenmessung (nur mit Ihrer Einwilligung).<br><br>
+      Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die Cookies in Ihrem Browser löschen.</p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">5. Ihre Rechte / Vaša prava (DSGVO Art. 15–21)</strong><br>
+      Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie das Recht auf Datenübertragbarkeit. Beschwerden können Sie bei der österreichischen Datenschutzbehörde einreichen: <a href="https://www.dsb.gv.at" target="_blank" style="color:var(--red)">dsb.gv.at</a><br><br>
+      Imate pravo na pristup, ispravak i brisanje vaših osobnih podataka. Pritužbe možete podnijeti austrijskom tijelu za zaštitu podataka (DSB).</p>
+
+      <p style="margin-bottom:20px"><strong style="font-family:var(--font-head);font-size:13px;letter-spacing:1px;color:var(--red);text-transform:uppercase">6. Externe Links / Vanjske poveznice</strong><br>
+      Diese Website enthält Links zu externen Seiten (z.B. Social Media). Für deren Inhalte und Datenschutzpraktiken sind wir nicht verantwortlich.</p>
+
+      <p style="color:#999;font-size:12px;border-top:1px solid var(--bg2);padding-top:16px;margin-top:8px">Stand / Datum: Juni 2026 · Bruno Kozina, Dornbirn</p>
+    </div>`
+};
+
+function openInfoPage(key){
+  document.getElementById('info-content').innerHTML = infoPages[key] || '<p>Sadržaj nije pronađen.</p>';
+  document.getElementById('info-page').style.display = 'block';
+  document.querySelector('main').style.display = 'none';
+  document.getElementById('footer').style.display = 'none';
+  window.scrollTo(0,0);
+}
+function closeInfoPage(){
+  document.getElementById('info-page').style.display = 'none';
+  document.querySelector('main').style.display = '';
+  document.getElementById('footer').style.display = '';
+  renderSite(currentCategory);
+  window.scrollTo(0,0);
+}
+
+// ============ COOKIE BANNER ============
+function initCookieBanner(){
+  if(!localStorage.getItem('adriakick_cookies')){
+    document.getElementById('cookie-banner').style.display = 'flex';
+  }
+}
+function cookieChoice(type){
+  localStorage.setItem('adriakick_cookies', type);
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+function hideCookieBanner(){
+  document.getElementById('cookie-banner').style.display = 'none';
+}
+
+renderSite('alle');
+initCookieBanner();
+</script>
+</body>
+</html>
